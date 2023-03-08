@@ -1,0 +1,43 @@
+function PlayerCollision({pc1, pc2}) {
+    return(
+        pc1.hitBox.position.x + pc1.hitBox.width >= pc2.position.x &&
+        pc1.hitBox.position.x <= pc2.position.x + pc2.width && 
+        pc1.hitBox.position.y + pc1.hitBox.height >= pc2.position.y &&
+        pc1.hitBox.position.y <= pc2.position.y + pc2.height
+    )
+}
+
+function WinDecider({player1, player2, timerID}){
+    clearTimeout(timerID)
+    document.querySelector('#EndGame').style.display = 'flex' //This just makes sure that it is going to be displayed.
+    //If the game ends in a draw
+    if (player1.health === player2.health ) {
+        document.querySelector("#EndGame").innerHTML = 'Tie'
+        document.querySelector("#EndGame").style.display = 'flex'
+    }
+    //If player 1 wins
+    else if (player1.health > player2.health){
+        document.querySelector("#EndGame").innerHTML = 'PLayer 1 Wins!'
+        document.querySelector("#EndGame").style.display = 'flex'
+    }
+    //If player 2 wins
+    else if (player2.health > player1.health){
+        document.querySelector("#EndGame").innerHTML = 'PLayer 2 Wins!'
+        document.querySelector("#EndGame").style.display = 'flex'
+    }
+}
+
+let timer = 10
+let timerID
+function decreaseTime(){
+    //Match clock of the gameplay which is displayed in the HTML 
+    if (timer >0){  
+        timerID = setTimeout(decreaseTime, 1000)
+        timer--
+        document.querySelector("#timer").innerHTML = timer
+    }
+    //If the clock runs out and is a tie, it will show the game is a tie.
+    if (timer === 0) {
+        WinDecider({player1, player2, timerID})
+    }
+}
