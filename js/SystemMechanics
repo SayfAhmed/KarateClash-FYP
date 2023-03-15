@@ -1,43 +1,37 @@
-function PlayerCollision({pc1, pc2}) {
-    return(
-        pc1.hitBox.position.x + pc1.hitBox.width >= pc2.position.x &&
-        pc1.hitBox.position.x <= pc2.position.x + pc2.width && 
-        pc1.hitBox.position.y + pc1.hitBox.height >= pc2.position.y &&
-        pc1.hitBox.position.y <= pc2.position.y + pc2.height
+function rectangularCollision({ rectangle1, rectangle2 }) {
+    return (
+      rectangle1.attackBox.position.x + rectangle1.attackBox.width >=
+        rectangle2.position.x &&
+      rectangle1.attackBox.position.x <=
+        rectangle2.position.x + rectangle2.width &&
+      rectangle1.attackBox.position.y + rectangle1.attackBox.height >=
+        rectangle2.position.y &&
+      rectangle1.attackBox.position.y <= rectangle2.position.y + rectangle2.height
     )
-}
-
-function WinDecider({player1, player2, timerID}){
-    clearTimeout(timerID)
-    document.querySelector('#EndGame').style.display = 'flex' //This just makes sure that it is going to be displayed.
-    //If the game ends in a draw
-    if (player1.health === player2.health ) {
-        document.querySelector("#EndGame").innerHTML = 'Tie'
-        document.querySelector("#EndGame").style.display = 'flex'
+  }
+  
+  function determineWinner({ player, player2, timerId }) {
+    clearTimeout(timerId)
+    document.querySelector('#displayText').style.display = 'flex'
+    if (player.health === player2.health) {
+      document.querySelector('#displayText').innerHTML = 'Tie'
+    } else if (player.health > player2.health) {
+      document.querySelector('#displayText').innerHTML = 'Player 1 Wins'
+    } else if (player.health < player2.health) {
+      document.querySelector('#displayText').innerHTML = 'Player 2 Wins'
     }
-    //If player 1 wins
-    else if (player1.health > player2.health){
-        document.querySelector("#EndGame").innerHTML = 'PLayer 1 Wins!'
-        document.querySelector("#EndGame").style.display = 'flex'
+  }
+  
+  let timer = 60
+  let timerId
+  function decreaseTimer() {
+    if (timer > 0) {
+      timerId = setTimeout(decreaseTimer, 1000)
+      timer--
+      document.querySelector('#timer').innerHTML = timer
     }
-    //If player 2 wins
-    else if (player2.health > player1.health){
-        document.querySelector("#EndGame").innerHTML = 'PLayer 2 Wins!'
-        document.querySelector("#EndGame").style.display = 'flex'
-    }
-}
-
-let timer = 10
-let timerID
-function decreaseTime(){
-    //Match clock of the gameplay which is displayed in the HTML 
-    if (timer >0){  
-        timerID = setTimeout(decreaseTime, 1000)
-        timer--
-        document.querySelector("#timer").innerHTML = timer
-    }
-    //If the clock runs out and is a tie, it will show the game is a tie.
+  
     if (timer === 0) {
-        WinDecider({player1, player2, timerID})
+      determineWinner({ player, player2, timerId })
     }
-}
+  }
