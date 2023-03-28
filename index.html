@@ -42,7 +42,7 @@
           id="playerHealth"
           style="
             position: absolute;
-            background: #f0a441;
+            background: #ffc62a;
             top: 0;
             right: 0;
             bottom: 0;
@@ -68,7 +68,7 @@
       >
         10
       </div>
-      <!-- player2 health -->
+      <!-- Player2 health -->
       <div
         style="
           position: relative;
@@ -80,10 +80,10 @@
       >
         <div style="background-color: red; height: 30px"></div>
         <div
-          id="player2Health"
+          id="Player2Health"
           style="
             position: absolute;
-            background: #f0a441;
+            background: #ffc62a;
             top: 0;
             right: 0;
             bottom: 0;
@@ -112,13 +112,25 @@
     <canvas></canvas>
   </div>
 
+
+<!-- Player1 UI icon -->
+  <img src="/img/UI/Player1.png" 
+  style="position:absolute;  display: flex; top:17px; right: 1837px; bottom:0px; border:none; width:75px ; height:75;" />
+
+<!-- Player1 UI icon -->
+<img src="/img/UI/Player2.png" 
+  style="position:absolute;  display: flex; top:9px; right: 872px; bottom:0px; border:none; width:85px ; height:85;" />
+
+
+
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
     integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   ></script>
-  <script src="js/SystemMechanics"></script>
+
+  <script src="js/utils.js"></script>
   <script src="js/classes.js"></script>
   <script src="index.js"></script>
 </body>
