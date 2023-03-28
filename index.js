@@ -187,14 +187,14 @@ function animate() {
 
   // player movement
 
-  if (keys.a.pressed && player.lastKey === 'a') {
+  if ((keys.a.pressed && player.lastKey === 'a') && !(player.position.x <= 3)) {
     player.velocity.x = -5
     player.switchSprite('run')
-  } else if (keys.d.pressed && player.lastKey === 'd') {
+  } else if ((keys.d.pressed && player.lastKey === 'd') && !(player.position.x >= 960)){
     player.velocity.x = 5
     player.switchSprite('run')
   } 
-  else if(keys.ArrowDown.pressed && player.lastKey == 's') {
+  else if(keys.s.pressed && player.lastKey === 's') {
     player.switchSprite('block')
   }
   else {
