@@ -208,10 +208,10 @@ function animate() {
   }
 
   // Player2 movement
-  if (keys.ArrowLeft.pressed && Player2.lastKey === 'ArrowLeft') {
+  if ((keys.ArrowLeft.pressed && Player2.lastKey === 'ArrowLeft') && !(Player2.position.x <= 3)) {
     Player2.velocity.x = -5
     Player2.switchSprite('run')
-  } else if (keys.ArrowRight.pressed && Player2.lastKey === 'ArrowRight') {
+  } else if ((keys.ArrowRight.pressed && Player2.lastKey === 'ArrowRight') && !(Player2.position.x >= 940)) {
     Player2.velocity.x = 5
     Player2.switchSprite('run')
   }
@@ -253,15 +253,13 @@ function animate() {
 
   // this is where our player gets hit
   if ((
-    rectangularCollision({
-      rectangle1: Player2,
-      rectangle2: player
-    }) &&
-    Player2.isAttacking &&
+    rectangularCollision({rectangle1: Player2, rectangle2: player}) 
+    &&
+    Player2.isAttacking 
+    &&
     Player2.framesCurrent === 2
-  ) && 
-  (player.isblocking = false)
-  )
+    //&& (player.isblocking = false)
+  ))
     {
     player.takeHit()
     Player2.isAttacking = false
