@@ -156,12 +156,18 @@ const keys = {
   d: {
     pressed: false
   },
+  s: {
+    pressed: false
+  },
   ArrowRight: {
     pressed: false
   },
   ArrowLeft: {
     pressed: false
-  }
+  },
+  ArrowDown: {
+    pressed: false
+  },
 }
 
 decreaseTimer()
@@ -187,10 +193,10 @@ function animate() {
   } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = 5
     player.switchSprite('run')
-  } //else if(this.position.x + this.width + this.velocity.x == canvas.width) { 
-    //player.velocity.x = 0
-    //player.switchSprite('idle')
-  //}
+  } 
+  else if(keys.ArrowDown.pressed && player.lastKey == 's') {
+    player.switchSprite('block')
+  }
   else {
     player.switchSprite('idle')
   }
@@ -209,7 +215,11 @@ function animate() {
   } else if (keys.ArrowRight.pressed && Player2.lastKey === 'ArrowRight') {
     Player2.velocity.x = 5
     Player2.switchSprite('run')
-  } else {
+  }
+  else if(keys.ArrowDown.pressed == true) {
+    Player2.switchSprite('block')
+  }
+   else {
     Player2.switchSprite('idle')
   }
 
@@ -291,7 +301,12 @@ window.addEventListener('keydown', (event) => {
         } 
         break
       case 's':
+        if ((player.position.y == 330) && (player.velocity.x == 0))
+        {
         player.block()
+        }
+        keys.s.pressed = true
+        player.lastKey = 's'
         break
       case 'e':
         player.attack()
@@ -316,7 +331,10 @@ window.addEventListener('keydown', (event) => {
         } 
         break
       case 'ArrowDown':
+        if ((Player2.position.y == 330) && (Player2.velocity.x = 0))
+        {
         Player2.block()
+        }
         break
       case 'm':
         Player2.attack()
@@ -333,6 +351,9 @@ window.addEventListener('keyup', (event) => {
     case 'a':
       keys.a.pressed = false
       break
+    case 's':
+      keys.s.pressed = false
+      break
   }
 
   // Player2 keys
@@ -341,6 +362,9 @@ window.addEventListener('keyup', (event) => {
       keys.ArrowRight.pressed = false
       break
     case 'ArrowLeft':
+      keys.ArrowLeft.pressed = false
+      break
+      case 'ArrowDown':
       keys.ArrowLeft.pressed = false
       break
   }
