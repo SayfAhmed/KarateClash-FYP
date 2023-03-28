@@ -141,13 +141,11 @@ const Player2 = new Fighter({
     offset: {
       x: 5,
       y: 50
-    },
+    }, //The size of the attack boxes
     width: 170,
     height: 50
   }
 })
-
-console.log(player)
 
 const keys = {
   a: {
@@ -177,6 +175,7 @@ function animate() {
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
   background.update()
+  //The colouring for the attack boxes
   c.fillStyle = 'rgba(255, 255, 255, 0.15)'
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.update()
@@ -253,14 +252,17 @@ function animate() {
   }
 
   // this is where our player gets hit
-  if (
+  if ((
     rectangularCollision({
       rectangle1: Player2,
       rectangle2: player
     }) &&
     Player2.isAttacking &&
     Player2.framesCurrent === 2
-  ) {
+  ) && 
+  (player.isblocking = false)
+  )
+    {
     player.takeHit()
     Player2.isAttacking = false
 
@@ -365,7 +367,7 @@ window.addEventListener('keyup', (event) => {
       keys.ArrowLeft.pressed = false
       break
       case 'ArrowDown':
-      keys.ArrowLeft.pressed = false
+      keys.ArrowDown.pressed = false
       break
   }
 })

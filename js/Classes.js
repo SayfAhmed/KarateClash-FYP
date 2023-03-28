@@ -95,6 +95,7 @@ class Fighter extends Sprite {
     }
     this.color = color
     this.isAttacking
+    this.isBlocking
     this.health = 100
     this.framesCurrent = 0
     this.framesElapsed = 0
@@ -131,6 +132,7 @@ class Fighter extends Sprite {
   }
   block() {
     this.switchSprite('block')
+    this.isBlocking = true
   }
   takeHit() {
     this.health -= 20
