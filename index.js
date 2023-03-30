@@ -77,7 +77,7 @@ const player = new Fighter({
       x: 15,
       y: 50
     },
-    width: 130,
+    width: 120,
     height: 50
   }
 })
@@ -142,7 +142,7 @@ const Player2 = new Fighter({
       x: 5,
       y: 50
     }, //The size of the attack boxes
-    width: 170,
+    width: 140,
     height: 50
   }
 })
