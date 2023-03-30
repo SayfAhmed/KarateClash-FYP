@@ -31,7 +31,7 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './img/Sanji/Idle.png',
+  imageSrc: './img/Sanji/FacingRight/Idle.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
@@ -40,39 +40,72 @@ const player = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './img/Sanji/Idle.png',
+      imageSrc: './img/Sanji/FacingRight/Idle.png',
       framesMax: 4
     },
     run: {
-      imageSrc: './img/Sanji/Run.png',
+      imageSrc: './img/Sanji/FacingRight/Run.png',
       framesMax: 8
     },
     jump: {
-      imageSrc: './img/Sanji/Jump.png',
+      imageSrc: './img/Sanji/FacingRight/Jump.png',
       framesMax: 2
     },
     fall: {
-      imageSrc: './img/Sanji/Fall.png',
+      imageSrc: './img/Sanji/FacingRight/Fall.png',
       framesMax: 2
     },
     attack1: {
-      imageSrc: './img/Sanji/Attack1.png',
+      imageSrc: './img/Sanji/FacingRight/Attack1.png',
       framesMax: 6 
     },
     takeHit: {
-      imageSrc: './img/Sanji/Take Hit - white silhouette.png',
+      imageSrc: './img/Sanji/FacingRight/Take Hit Flash.png',
       framesMax: 4
     },
     block: {
-      imageSrc: './img/Sanji/block.png',
+      imageSrc: './img/Sanji/FacingRight/block.png',
       framesMax: 2
     },
     death: {
-      imageSrc: './img/Sanji/Death.png',
+      imageSrc: './img/Sanji/FacingRight/Death.png',
       framesMax: 6
+  //   },
+  //   idle: {
+  //     imageSrc: './img/Sanji/FacingRight/Idle.png',
+  //     framesMax: 4
+  //   },
+  //   run: {
+  //     imageSrc: './img/Sanji/FacingRight/Run.png',
+  //     framesMax: 8
+  //   },
+  //   jump: {
+  //     imageSrc: './img/Sanji/FacingRight/Jump.png',
+  //     framesMax: 2
+  //   },
+  //   fall: {
+  //     imageSrc: './img/Sanji/FacingRight/Fall.png',
+  //     framesMax: 2
+  //   },
+  //   attack1: {
+  //     imageSrc: './img/Sanji/FacingRight/Attack1.png',
+  //     framesMax: 6 
+  //   },
+  //   takeHit: {
+  //     imageSrc: './img/Sanji/FacingRight/Take Hit Flash.png',
+  //     framesMax: 4
+  //   },
+  //   block: {
+  //     imageSrc: './img/Sanji/FacingRight/block.png',
+  //     framesMax: 2
+  //   },
+  //   death: {
+  //     imageSrc: './img/Sanji/FacingRight/Death.png',
+  //     framesMax: 6
     }
   },
   attackBox: {
+   //this is how far from the origin the attackbox is drawn
     offset: {
       x: 15,
       y: 50
@@ -184,7 +217,7 @@ function animate() {
   player.velocity.x = 0
   Player2.velocity.x = 0
 
-  // player movement
+            // player movement
 
   if ((keys.a.pressed && player.lastKey === 'a') && !(player.position.x <= 3)) {
     player.velocity.x = -5
@@ -207,7 +240,11 @@ function animate() {
     player.switchSprite('fall')
   }
 
-  // Player2 movement
+
+
+
+
+            // Player2 movement
   if ((keys.ArrowLeft.pressed && Player2.lastKey === 'ArrowLeft') && !(Player2.position.x <= 3)) {
     Player2.velocity.x = -5
     Player2.switchSprite('run')
@@ -228,6 +265,11 @@ function animate() {
   } else if (Player2.velocity.y > 0) {
     Player2.switchSprite('fall')
   }
+
+
+
+
+
 
   // detect for collision & Player2 gets hit
   if (
@@ -251,7 +293,7 @@ function animate() {
     player.isAttacking = false
   }
 
-  // this is where our player gets hit
+  // this is where player1 gets hit
   if ((
     rectangularCollision({rectangle1: Player2, rectangle2: player}) 
     &&
@@ -284,6 +326,7 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {
+// Player1 keys  
   if (!player.dead) {
     switch (event.key) {
       case 'd':
@@ -314,7 +357,7 @@ window.addEventListener('keydown', (event) => {
         break
     }
   }
-
+// Player2 keys
   if (!Player2.dead) {
     switch (event.key) {
       case 'ArrowRight':
@@ -348,6 +391,7 @@ window.addEventListener('keydown', (event) => {
 })
 
 window.addEventListener('keyup', (event) => {
+  // Player keys
   switch (event.key) {
     case 'd':
       keys.d.pressed = false
