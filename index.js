@@ -31,8 +31,8 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './img/Sanji/FacingRight/Idle.png',
-  framesMax: 4,
+  // imageSrc: './img/Sanji/FacingRight/Idle.png',
+  // framesMax: 4,
   scale: 2.5,
   offset: {
     x: 215,
@@ -234,7 +234,12 @@ function animate() {
     player.switchSprite('block')
   }
   else {
+    if (player.position.x > Player2.position.x){
+    player.switchSprite('idleL')
+    }
+    else {
     player.switchSprite('idle')
+    }
   }
 
   // jumping

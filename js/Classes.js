@@ -227,9 +227,9 @@ class Fighter extends Sprite {
       
       //Facing Left
       case 'idleL':
-        if (this.image !== this.sprites.idle.image) {
-          this.image = this.sprites.idle.image
-          this.framesMax = this.sprites.idle.framesMax
+        if (this.image !== this.sprites.idleL.image) {
+          this.image = this.sprites.idleL.image
+          this.framesMax = this.sprites.idleL.framesMax
           this.framesCurrent = 0
         }
         break
