@@ -225,6 +225,69 @@ class Fighter extends Sprite {
         }
         break
       
+      //Facing Left
+      case 'idleL':
+        if (this.image !== this.sprites.idle.image) {
+          this.image = this.sprites.idle.image
+          this.framesMax = this.sprites.idle.framesMax
+          this.framesCurrent = 0
+        }
+        break
+      case 'runL':
+        if (this.image !== this.sprites.runL.image) {
+          this.image = this.sprites.runL.image
+          this.framesMax = this.sprites.runL.framesMax
+          this.framesCurrent = 0
+        }
+        break
+      case 'jumpL':
+        if (this.image !== this.sprites.jump.image) {
+          this.image = this.sprites.jump.image
+          this.framesMax = this.sprites.jump.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+      case 'fallL':
+        if (this.image !== this.sprites.fall.image) {
+          this.image = this.sprites.fall.image
+          this.framesMax = this.sprites.fall.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+      case 'attack1L':
+        if (this.image !== this.sprites.attack1.image) {
+          this.image = this.sprites.attack1.image
+          this.framesMax = this.sprites.attack1.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+      case 'takeHitL':
+        if (this.image !== this.sprites.takeHit.image) {
+          this.image = this.sprites.takeHit.image
+          this.framesMax = this.sprites.takeHit.framesMax
+          this.framesCurrent = 0
+        }
+        break
+
+        case 'blockL':
+          if (this.image !== this.sprites.block.image) {
+            this.image = this.sprites.block.image
+            this.framesMax = this.sprites.block.framesMax
+            this.framesCurrent = 0
+          }
+          break
+
+      case 'deathL':
+        if (this.image !== this.sprites.death.image) {
+          this.image = this.sprites.death.image
+          this.framesMax = this.sprites.death.framesMax
+          this.framesCurrent = 0
+        }
+        break
+      
     }
   }
 }

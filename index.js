@@ -39,6 +39,7 @@ const player = new Fighter({
     y: 157
   },
   sprites: {
+    //Facing right
     idle: {
       imageSrc: './img/Sanji/FacingRight/Idle.png',
       framesMax: 4
@@ -70,38 +71,41 @@ const player = new Fighter({
     death: {
       imageSrc: './img/Sanji/FacingRight/Death.png',
       framesMax: 6
-  //   },
-  //   idle: {
-  //     imageSrc: './img/Sanji/FacingRight/Idle.png',
-  //     framesMax: 4
-  //   },
-  //   run: {
-  //     imageSrc: './img/Sanji/FacingRight/Run.png',
-  //     framesMax: 8
-  //   },
-  //   jump: {
-  //     imageSrc: './img/Sanji/FacingRight/Jump.png',
-  //     framesMax: 2
-  //   },
-  //   fall: {
-  //     imageSrc: './img/Sanji/FacingRight/Fall.png',
-  //     framesMax: 2
-  //   },
-  //   attack1: {
-  //     imageSrc: './img/Sanji/FacingRight/Attack1.png',
-  //     framesMax: 6 
-  //   },
-  //   takeHit: {
-  //     imageSrc: './img/Sanji/FacingRight/Take Hit Flash.png',
-  //     framesMax: 4
-  //   },
-  //   block: {
-  //     imageSrc: './img/Sanji/FacingRight/block.png',
-  //     framesMax: 2
-  //   },
-  //   death: {
-  //     imageSrc: './img/Sanji/FacingRight/Death.png',
-  //     framesMax: 6
+    },
+
+    //Facing Left
+
+    idleL: {
+      imageSrc: './img/Sanji/FacingLeft/Idle.png',
+      framesMax: 4
+    },
+    runL: {
+      imageSrc: './img/Sanji/FacingLeft/Run.png',
+      framesMax: 8
+    },
+    jumpL: {
+      imageSrc: './img/Sanji/FacingLeft/Jump.png',
+      framesMax: 2
+    },
+    fallL: {
+      imageSrc: './img/Sanji/FacingLeft/Fall.png',
+      framesMax: 2
+    },
+    attack1L: {
+      imageSrc: './img/Sanji/FacingLeft/Attack1.png',
+      framesMax: 6 
+    },
+    takeHitL: {
+      imageSrc: './img/Sanji/FacingLeft/Take Hit Flash.png',
+      framesMax: 4
+    },
+    blockL: {
+      imageSrc: './img/Sanji/FacingLeft/block.png',
+      framesMax: 2
+    },
+    deathL: {
+      imageSrc: './img/Sanji/FacingLeft/Death.png',
+      framesMax: 6
     }
   },
   attackBox: {
@@ -221,7 +225,7 @@ function animate() {
 
   if ((keys.a.pressed && player.lastKey === 'a') && !(player.position.x <= 3)) {
     player.velocity.x = -5
-    player.switchSprite('run')
+    player.switchSprite('runL')
   } else if ((keys.d.pressed && player.lastKey === 'd') && !(player.position.x >= 960)){
     player.velocity.x = 5
     player.switchSprite('run')
