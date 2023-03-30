@@ -215,7 +215,7 @@ function animate() {
     Player2.velocity.x = 5
     Player2.switchSprite('run')
   }
-  else if(keys.ArrowDown.pressed == true) {
+  else if(keys.ArrowDown.pressed && Player2.lastKey === 'ArrowDown') {
     Player2.switchSprite('block')
   }
    else {
@@ -301,7 +301,8 @@ window.addEventListener('keydown', (event) => {
         } 
         break
       case 's':
-        if ((player.position.y == 330) && (player.velocity.x == 0))
+        //this if statement is to stop the player from using block in 'unskillful' ways. This makes it so that you must be stationary for block to occur.
+        if ((player.position.y == 330) && (player.velocity.x == 0)) 
         {
         player.block()
         }
@@ -331,10 +332,13 @@ window.addEventListener('keydown', (event) => {
         } 
         break
       case 'ArrowDown':
-        if ((Player2.position.y == 330) && (Player2.velocity.x = 0))
+        //this if statement is to stop the player from using block in 'unskillful' ways. This makes it so that you must be stationary for block to occur.
+        if ((Player2.position.y == 330) && (Player2.velocity.x == 0)) 
         {
         Player2.block()
         }
+        keys.ArrowDown.pressed = true
+        Player2.lastKey = 'ArrowDown'
         break
       case 'm':
         Player2.attack()
