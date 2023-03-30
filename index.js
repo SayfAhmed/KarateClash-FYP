@@ -175,8 +175,8 @@ function animate() {
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
   background.update()
-  //The colouring for the attack boxes
-  c.fillStyle = 'rgba(255, 255, 255, 0.15)'
+  //A light overlay on the screen to make things loot a tiny bit nicer
+  c.fillStyle = 'rgba(255, 255, 255, 0.1)'
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.update()
   Player2.update()
