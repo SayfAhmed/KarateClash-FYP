@@ -74,7 +74,6 @@ const player = new Fighter({
     },
 
     //Facing Left
-
     idleL: {
       imageSrc: './img/Sanji/FacingLeft/Idle.png',
       framesMax: 4
@@ -221,8 +220,11 @@ function animate() {
   player.velocity.x = 0
   Player2.velocity.x = 0
 
-            // player movement
 
+
+
+
+            // player movement
   if ((keys.a.pressed && player.lastKey === 'a') && !(player.position.x <= 3)) {
     player.velocity.x = -5
     player.switchSprite('runL')
@@ -231,7 +233,12 @@ function animate() {
     player.switchSprite('run')
   } 
   else if(keys.s.pressed && player.lastKey === 's') {
-    player.switchSprite('block')
+    if(player.position.x > Player2.position.x){
+    player.switchSprite('blockL')
+    }
+    else{
+      player.switchSprite('block')
+    }
   }
   else {
     if (player.position.x > Player2.position.x){
@@ -244,9 +251,19 @@ function animate() {
 
   // jumping
   if (player.velocity.y < 0) {
-    player.switchSprite('jump')
+    if(player.position.x > Player2.position.x){
+      player.switchSprite('jumpL')
+    }
+    else{
+      player.switchSprite('jump')
+    }
   } else if (player.velocity.y > 0) {
-    player.switchSprite('fall')
+    if(player.position.x > Player2.position.x){
+      player.switchSprite('fallL')
+    }
+    else{
+      player.switchSprite('fall')
+    }
   }
 
 

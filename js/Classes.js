@@ -56,8 +56,9 @@ class Fighter extends Sprite {
   draw() {
     c.save()
     super.draw()
-    // c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
-    // c.restore()
+    // below
+    c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
+    c.restore()
     //comment this back in when you want to test hitbox locations ^
   }
   constructor({
@@ -126,12 +127,24 @@ class Fighter extends Sprite {
   }
 
   attack() {
-    this.switchSprite('attack1')
+    if(player.position.x > Player2.position.x){
+    this.switchSprite('attack1L')
     this.isAttacking = true
+    }
+    else{
+      this.switchSprite('attack1')
+      this.isAttacking = true
+    }
   }
   block() {
-    this.switchSprite('block')
-    this.isBlocking = true
+    if(player.position.x > Player2.position.x){
+      this.switchSprite('blockL')
+      this.isBlocking = true
+    }
+    else {
+      this.switchSprite('block')
+      this.isBlocking = true
+    }
   }
   takeHit() {
     this.health -= 20
@@ -152,7 +165,7 @@ class Fighter extends Sprite {
     if (
       this.image === this.sprites.attack1.image &&
       this.framesCurrent < this.sprites.attack1.framesMax - 1
-    )
+    ) 
       return
 
     // override when fighter gets hit
@@ -241,25 +254,25 @@ class Fighter extends Sprite {
         }
         break
       case 'jumpL':
-        if (this.image !== this.sprites.jump.image) {
-          this.image = this.sprites.jump.image
-          this.framesMax = this.sprites.jump.framesMax
+        if (this.image !== this.sprites.jumpL.image) {
+          this.image = this.sprites.jumpL.image
+          this.framesMax = this.sprites.jumpL.framesMax
           this.framesCurrent = 0
         }
         break
 
       case 'fallL':
-        if (this.image !== this.sprites.fall.image) {
-          this.image = this.sprites.fall.image
-          this.framesMax = this.sprites.fall.framesMax
+        if (this.image !== this.sprites.fallL.image) {
+          this.image = this.sprites.fallL.image
+          this.framesMax = this.sprites.fallL.framesMax
           this.framesCurrent = 0
         }
         break
 
       case 'attack1L':
-        if (this.image !== this.sprites.attack1.image) {
-          this.image = this.sprites.attack1.image
-          this.framesMax = this.sprites.attack1.framesMax
+        if (this.image !== this.sprites.attack1L.image) {
+          this.image = this.sprites.attack1L.image
+          this.framesMax = this.sprites.attack1L.framesMax
           this.framesCurrent = 0
         }
         break
@@ -273,9 +286,9 @@ class Fighter extends Sprite {
         break
 
         case 'blockL':
-          if (this.image !== this.sprites.block.image) {
-            this.image = this.sprites.block.image
-            this.framesMax = this.sprites.block.framesMax
+          if (this.image !== this.sprites.blockL.image) {
+            this.image = this.sprites.blockL.image
+            this.framesMax = this.sprites.blockL.framesMax
             this.framesCurrent = 0
           }
           break
