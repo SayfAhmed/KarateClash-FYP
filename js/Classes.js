@@ -57,8 +57,8 @@ class Fighter extends Sprite {
     c.save()
     super.draw()
     // below
-    c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
-    c.restore()
+    // c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
+    // c.restore()
     //comment this back in when you want to test hitbox locations ^
   }
   constructor({
@@ -163,8 +163,8 @@ class Fighter extends Sprite {
 
     // overriding all other animations with the attack animation
     if (
-      this.image === this.sprites.attack1.image &&
-      this.framesCurrent < this.sprites.attack1.framesMax - 1
+      this.image === (this.sprites.attack1.image || this.sprites.attack1L.image) &&
+      this.framesCurrent < ((this.sprites.attack1.framesMax - 1) || (this.sprites.attack1L.framesMax - 1))
     ) 
       return
 
