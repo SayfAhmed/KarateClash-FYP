@@ -31,7 +31,7 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  imageSrc: './img/samuraiMack/Idle.png',
+  imageSrc: './img/Sanji/Idle.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
@@ -40,35 +40,35 @@ const player = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './img/samuraiMack/Idle.png',
+      imageSrc: './img/Sanji/Idle.png',
       framesMax: 4
     },
     run: {
-      imageSrc: './img/samuraiMack/Run.png',
+      imageSrc: './img/Sanji/Run.png',
       framesMax: 8
     },
     jump: {
-      imageSrc: './img/samuraiMack/Jump.png',
+      imageSrc: './img/Sanji/Jump.png',
       framesMax: 2
     },
     fall: {
-      imageSrc: './img/samuraiMack/Fall.png',
+      imageSrc: './img/Sanji/Fall.png',
       framesMax: 2
     },
     attack1: {
-      imageSrc: './img/samuraiMack/Attack1.png',
+      imageSrc: './img/Sanji/Attack1.png',
       framesMax: 6 
     },
     takeHit: {
-      imageSrc: './img/samuraiMack/Take Hit - white silhouette.png',
+      imageSrc: './img/Sanji/Take Hit - white silhouette.png',
       framesMax: 4
     },
     block: {
-      imageSrc: './img/samuraiMack/block.png',
+      imageSrc: './img/Sanji/block.png',
       framesMax: 2
     },
     death: {
-      imageSrc: './img/samuraiMack/Death.png',
+      imageSrc: './img/Sanji/Death.png',
       framesMax: 6
     }
   },
@@ -96,7 +96,7 @@ const Player2 = new Fighter({
     x: -50,
     y: 0
   },
-  imageSrc: './img/kenji/Idle.png',
+  imageSrc: './img/Vegeta/Idle.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
@@ -105,35 +105,35 @@ const Player2 = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './img/kenji/Idle.png',
+      imageSrc: './img/Vegeta/Idle.png',
       framesMax: 4
     },
     run: {
-      imageSrc: './img/kenji/Run.png',
+      imageSrc: './img/Vegeta/Run.png',
       framesMax: 8
     },
     jump: {
-      imageSrc: './img/kenji/Jump.png',
+      imageSrc: './img/Vegeta/Jump.png',
       framesMax: 2
     },
     fall: {
-      imageSrc: './img/kenji/Fall.png',
+      imageSrc: './img/Vegeta/Fall.png',
       framesMax: 2
     },
     attack1: {
-      imageSrc: './img/kenji/Attack1.png',
+      imageSrc: './img/Vegeta/Attack1.png',
       framesMax: 4
     },
     takeHit: {
-      imageSrc: './img/kenji/Take hit.png',
+      imageSrc: './img/Vegeta/Take hit.png',
       framesMax: 3
     },
     block: {
-      imageSrc: './img/kenji/block.png',
+      imageSrc: './img/Vegeta/block.png',
       framesMax: 2
     },
     death: {
-      imageSrc: './img/kenji/Death.png',
+      imageSrc: './img/Vegeta/Death.png',
       framesMax: 7
     }
   },
