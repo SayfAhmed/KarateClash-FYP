@@ -16,8 +16,7 @@ const background = new Sprite({
   imageSrc: './img/stage.png'
 })
 
-
-
+      //Player Sprites
 const player = new Fighter({
   position: {
     x: 224,
@@ -31,8 +30,8 @@ const player = new Fighter({
     x: 0,
     y: 0
   },
-  // imageSrc: './img/Sanji/FacingRight/Idle.png',
-  // framesMax: 4,
+  imageSrc: './img/Sanji/FacingRight/Idle.png',
+  framesMax: 4,
   scale: 2.5,
   offset: {
     x: 215,
@@ -108,7 +107,7 @@ const player = new Fighter({
     }
   },
   attackBox: {
-   //this is how far from the origin the attackbox is drawn
+   //this is how far from the origin of the player which the the attackbox's origin is
     offset: {
       x: 15,
       y: 50
@@ -118,6 +117,9 @@ const player = new Fighter({
   }
 })
 
+
+
+      //Player 2 Sprites
 const Player2 = new Fighter({
   position: {
     x: 700,
@@ -132,7 +134,7 @@ const Player2 = new Fighter({
     x: -50,
     y: 0
   },
-  imageSrc: './img/Vegeta/Idle.png',
+  imageSrc: './img/Vegeta/FacingRight/Idle.png',
   framesMax: 4,
   scale: 2.5,
   offset: {
@@ -141,35 +143,67 @@ const Player2 = new Fighter({
   },
   sprites: {
     idle: {
-      imageSrc: './img/Vegeta/Idle.png',
+      imageSrc: './img/Vegeta/FacingRight/Idle.png',
       framesMax: 4
     },
     run: {
-      imageSrc: './img/Vegeta/Run.png',
+      imageSrc: './img/Vegeta/FacingRight/Run.png',
       framesMax: 8
     },
     jump: {
-      imageSrc: './img/Vegeta/Jump.png',
+      imageSrc: './img/Vegeta/FacingRight/Jump.png',
       framesMax: 2
     },
     fall: {
-      imageSrc: './img/Vegeta/Fall.png',
+      imageSrc: './img/Vegeta/FacingRight/Fall.png',
       framesMax: 2
     },
     attack1: {
-      imageSrc: './img/Vegeta/Attack1.png',
+      imageSrc: './img/Vegeta/FacingRight/Attack1.png',
       framesMax: 4
     },
     takeHit: {
-      imageSrc: './img/Vegeta/Take hit.png',
+      imageSrc: './img/Vegeta/FacingRight/Take hit.png',
       framesMax: 3
     },
     block: {
-      imageSrc: './img/Vegeta/block.png',
+      imageSrc: './img/Vegeta/FacingRight/block.png',
       framesMax: 2
     },
     death: {
-      imageSrc: './img/Vegeta/Death.png',
+      imageSrc: './img/Vegeta/FacingRight/Death.png',
+      framesMax: 7
+    },
+    idleL: {
+      imageSrc: './img/Vegeta/FacingLeft/Idle.png',
+      framesMax: 4
+    },
+    runL: {
+      imageSrc: './img/Vegeta/FacingLeft/Run.png',
+      framesMax: 8
+    },
+    jumpL: {
+      imageSrc: './img/Vegeta/FacingLeft/Jump.png',
+      framesMax: 2
+    },
+    fallL: {
+      imageSrc: './img/Vegeta/FacingLeft/Fall.png',
+      framesMax: 2
+    },
+    attack1L: {
+      imageSrc: './img/Vegeta/FacingLeft/Attack1.png',
+      framesMax: 4
+    },
+    takeHitL: {
+      imageSrc: './img/Vegeta/FacingLeft/Take hit.png',
+      framesMax: 3
+    },
+    blockL: {
+      imageSrc: './img/Vegeta/FacingLeft/block.png',
+      framesMax: 2
+    },
+    deathL: {
+      imageSrc: './img/Vegeta/FacingLeft/Death.png',
       framesMax: 7
     }
   },
@@ -270,32 +304,67 @@ function animate() {
 
 
 
+
+
+
+
+
             // Player2 movement
+  //running
   if ((keys.ArrowLeft.pressed && Player2.lastKey === 'ArrowLeft') && !(Player2.position.x <= 3)) {
     Player2.velocity.x = -5
-    Player2.switchSprite('run')
+    Player2.switchSprite('runL')
   } else if ((keys.ArrowRight.pressed && Player2.lastKey === 'ArrowRight') && !(Player2.position.x >= 940)) {
     Player2.velocity.x = 5
     Player2.switchSprite('run')
   }
+
+  //Blocking
   else if(keys.ArrowDown.pressed && Player2.lastKey === 'ArrowDown') {
-    Player2.switchSprite('block')
+    if(Player2.position.x > player.position.x){
+      Player2.switchSprite('blockL')
+      }
+      else{
+        Player2.switchSprite('block')
+      }
   }
+
+  //Idle
    else {
-    Player2.switchSprite('idle')
+    if (player.position.x > Player2.position.x){
+      Player2.switchSprite('idle')
+    }
+    else{
+      Player2.switchSprite('idleL')
+    }
   }
 
   // jumping
   if (Player2.velocity.y < 0) {
-    Player2.switchSprite('jump')
+    if(player.position.x > Player2.position.x){
+      Player2.switchSprite('jump')
+    }
+    else {
+      Player2.switchSprite('jumpL')
+    }
   } else if (Player2.velocity.y > 0) {
-    Player2.switchSprite('fall')
+    if(player.position.x > Player2.position.x){
+      Player2.switchSprite('fall')
+    }
+    else {
+      Player2.switchSprite('fallL')
+    }
   }
 
 
 
 
 
+
+
+
+
+  
 
   // detect for collision & Player2 gets hit
   if (
