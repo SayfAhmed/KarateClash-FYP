@@ -212,7 +212,7 @@ const Player2 = new Fighter({
       x: 50,
       y: 50
     }, //The size of the attack boxes
-    width: 140,
+    width: 110,
     height: 50
   }
 })
@@ -276,9 +276,11 @@ function animate() {
   }
   else {
     if (player.position.x > Player2.position.x){
+    player.attackBox.width = -120
     player.switchSprite('idleL')
     }
     else {
+    player.attackBox.width = 120
     player.switchSprite('idle')
     }
   }
@@ -332,9 +334,11 @@ function animate() {
   //Idle
    else {
     if (player.position.x > Player2.position.x){
+      Player2.attackBox.width = 90
       Player2.switchSprite('idle')
     }
     else{
+      Player2.attackBox.width = -110
       Player2.switchSprite('idleL')
     }
   }
