@@ -179,13 +179,14 @@ class Fighter extends Sprite {
       else{
         this.switchSprite('death')
       }
-    } else 
+    } else {
       if(Player2.position.x > player.position.x){
         this.switchSprite('takeHitL')
       }
       else{
         this.switchSprite('takeHit')
       }
+    }
   }
 
 

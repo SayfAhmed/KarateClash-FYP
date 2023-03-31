@@ -212,7 +212,7 @@ const Player2 = new Fighter({
       x: 50,
       y: 50
     }, //The size of the attack boxes
-    width: -140,
+    width: 140,
     height: 50
   }
 })
@@ -395,7 +395,7 @@ function animate() {
     //&& (player.isblocking = false)
   ))
     {
-    player.takeHit()
+    player.takeHitP1()
     Player2.isAttacking = false
 
     gsap.to('#playerHealth', {
