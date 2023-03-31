@@ -57,8 +57,8 @@ class Fighter extends Sprite {
     c.save()
     super.draw()
     // below
-    // c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
-    // c.restore()
+    c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
+    c.restore()
     //comment this back in when you want to test hitbox locations ^
   }
   constructor({
@@ -126,7 +126,7 @@ class Fighter extends Sprite {
     } else this.velocity.y += gravity
   }
 
-  attack() {
+  attack1P1() {
     if(player.position.x > Player2.position.x){
     this.switchSprite('attack1L')
     this.isAttacking = true
@@ -136,6 +136,18 @@ class Fighter extends Sprite {
       this.isAttacking = true
     }
   }
+
+  attack1P2() {
+    if(player.position.x > Player2.position.x){
+    this.switchSprite('attack1')
+    this.isAttacking = true
+    }
+    else{
+      this.switchSprite('attack1L')
+      this.isAttacking = true
+    }
+  }
+
   block() {
     if(player.position.x > Player2.position.x){
       this.switchSprite('blockL')
@@ -146,7 +158,9 @@ class Fighter extends Sprite {
       this.isBlocking = true
     }
   }
-  takeHit() {
+
+  // PLayer taking the hit
+  takeHitP1() {
     this.health -= 20
 
     if (this.health <= 0) {
@@ -154,9 +168,32 @@ class Fighter extends Sprite {
     } else this.switchSprite('takeHit')
   }
 
+  // PLayer2 taking the hit
+  takeHitP2() {
+    this.health -= 20
+
+    if (this.health <= 0) {
+      if(Player2.position.x > player.position.x){
+        this.switchSprite('deathL')
+      }
+      else{
+        this.switchSprite('death')
+      }
+    } else 
+      if(Player2.position.x > player.position.x){
+        this.switchSprite('takeHitL')
+      }
+      else{
+        this.switchSprite('takeHit')
+      }
+  }
+
+
+
+
   switchSprite(sprite) {
-    if (this.image === this.sprites.death.image) {
-      if (this.framesCurrent === this.sprites.death.framesMax - 1)
+    if (this.image === this.sprites.deathL.image) {
+      if (this.framesCurrent === this.sprites.deathL.framesMax - 1)
         this.dead = true
       return
     }
@@ -170,11 +207,13 @@ class Fighter extends Sprite {
 
     // override when fighter gets hit
     if (
-      this.image === this.sprites.takeHit.image &&
-      this.framesCurrent < this.sprites.takeHit.framesMax - 1
+      this.image === this.sprites.takeHitL.image &&
+      this.framesCurrent < this.sprites.takeHitL.framesMax - 1
     )
       return
 
+
+      
     switch (sprite) {
       case 'idle':
         if (this.image !== this.sprites.idle.image) {
@@ -278,9 +317,9 @@ class Fighter extends Sprite {
         break
 
       case 'takeHitL':
-        if (this.image !== this.sprites.takeHit.image) {
-          this.image = this.sprites.takeHit.image
-          this.framesMax = this.sprites.takeHit.framesMax
+        if (this.image !== this.sprites.takeHitL.image) {
+          this.image = this.sprites.takeHitL.image
+          this.framesMax = this.sprites.takeHitL.framesMax
           this.framesCurrent = 0
         }
         break
@@ -294,9 +333,9 @@ class Fighter extends Sprite {
           break
 
       case 'deathL':
-        if (this.image !== this.sprites.death.image) {
-          this.image = this.sprites.death.image
-          this.framesMax = this.sprites.death.framesMax
+        if (this.image !== this.sprites.deathL.image) {
+          this.image = this.sprites.deathL.image
+          this.framesMax = this.sprites.deathL.framesMax
           this.framesCurrent = 0
         }
         break

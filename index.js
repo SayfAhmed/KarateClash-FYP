@@ -209,10 +209,10 @@ const Player2 = new Fighter({
   },
   attackBox: {
     offset: {
-      x: 5,
+      x: 50,
       y: 50
     }, //The size of the attack boxes
-    width: 140,
+    width: -140,
     height: 50
   }
 })
@@ -359,13 +359,6 @@ function animate() {
 
 
 
-
-
-
-
-
-  
-
   // detect for collision & Player2 gets hit
   if (
     rectangularCollision({
@@ -375,7 +368,7 @@ function animate() {
     player.isAttacking &&
     player.framesCurrent === 4
   ) {
-    Player2.takeHit()
+    Player2.takeHitP2()
     player.isAttacking = false
 
     gsap.to('#Player2Health', {
@@ -387,6 +380,10 @@ function animate() {
   if (player.isAttacking && player.framesCurrent === 4) {
     player.isAttacking = false
   }
+
+
+
+
 
   // this is where player1 gets hit
   if ((
@@ -411,6 +408,8 @@ function animate() {
     Player2.isAttacking = false
   }
 
+
+  
   // end game based on health
   if (Player2.health <= 0 || player.health <= 0) {
     determineWinner({ player, Player2, timerId })
@@ -448,7 +447,7 @@ window.addEventListener('keydown', (event) => {
         player.lastKey = 's'
         break
       case 'e':
-        player.attack()
+        player.attack1P1()
         break
     }
   }
@@ -479,7 +478,7 @@ window.addEventListener('keydown', (event) => {
         Player2.lastKey = 'ArrowDown'
         break
       case 'm':
-        Player2.attack()
+        Player2.attack1P2()
         break
     }
   }
