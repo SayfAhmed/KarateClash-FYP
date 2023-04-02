@@ -445,7 +445,7 @@ window.addEventListener('keydown', (event) => {
         //this if statement is to stop the player from using block in 'unskillful' ways. This makes it so that you must be stationary for block to occur.
         if ((player.position.y == 330) && (player.velocity.x == 0)) 
         {
-        player.block()
+        player.blockP1()
         }
         keys.s.pressed = true
         player.lastKey = 's'
@@ -476,7 +476,7 @@ window.addEventListener('keydown', (event) => {
         //this if statement is to stop the player from using block in 'unskillful' ways. This makes it so that you must be stationary for block to occur.
         if ((Player2.position.y == 330) && (Player2.velocity.x == 0)) 
         {
-        Player2.block()
+        Player2.blockP2()
         }
         keys.ArrowDown.pressed = true
         Player2.lastKey = 'ArrowDown'

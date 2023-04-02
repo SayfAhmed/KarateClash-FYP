@@ -147,8 +147,8 @@ class Fighter extends Sprite {
       this.isAttacking = true
     }
   }
-
-  block() {
+//Players Blocking
+  blockP1() {
     if(player.position.x > Player2.position.x){
       this.switchSprite('blockL')
       this.isBlocking = true
@@ -159,13 +159,37 @@ class Fighter extends Sprite {
     }
   }
 
+  //Player2's Blocking
+  blockP2() {
+    if(player.position.x > Player2.position.x){
+      this.switchSprite('block')
+      this.isBlocking = true
+    }
+    else {
+      this.switchSprite('blockL')
+      this.isBlocking = true
+    }
+  }
+
   // PLayer taking the hit
   takeHitP1() {
     this.health -= 20
 
     if (this.health <= 0) {
-      this.switchSprite('death')
-    } else this.switchSprite('takeHit')
+      if(Player2.position.x > player.position.x){
+        this.switchSprite('death')
+      }
+      else{
+        this.switchSprite('deathL')
+      }
+    } else {
+      if(Player2.position.x > player.position.x){
+        this.switchSprite('takeHit')
+      }
+      else{
+        this.switchSprite('takeHitL')
+      }
+    }
   }
 
   // PLayer2 taking the hit
