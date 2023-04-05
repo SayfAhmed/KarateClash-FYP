@@ -277,10 +277,12 @@ function animate() {
   else {
     if (player.position.x > Player2.position.x){
     player.attackBox.width = -120
+    player.attackBox.offset.x = 55
     player.switchSprite('idleL')
     }
     else {
     player.attackBox.width = 120
+    player.attackBox.offset.x = 15
     player.switchSprite('idle')
     }
   }
@@ -334,11 +336,13 @@ function animate() {
   //Idle
    else {
     if (player.position.x > Player2.position.x){
-      Player2.attackBox.width = 90
+      Player2.attackBox.width = 120
+      Player2.attackBox.offset.x = 25
       Player2.switchSprite('idle')
     }
     else{
-      Player2.attackBox.width = -110
+      Player2.attackBox.width = -130
+      Player2.attackBox.offset.x = 50
       Player2.switchSprite('idleL')
     }
   }
@@ -515,3 +519,8 @@ window.addEventListener('keyup', (event) => {
       break
   }
 })
+
+// window reloading function to restart the game 
+function restart(){
+  window.location.reload()
+  }
