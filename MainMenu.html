@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Retro Game</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Karate Clash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: 'Press Start 2P', cursive;
+      }
+      
+      body {
+        height: 576px;
+        width: 1024px;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+      }
+      
+      header {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      nav {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        padding: 5px;
+        text-align: center;
+      }
+
+      li a {
+        color: white;
+        text-decoration: none;
+      }
+    </style>
   </head>
-  <body style="width: 1024px; height: 576px;">
+  <body>
+    <img src="./img/UI/MMBackground.jpg" alt="Background Image">
     <header>
-      <h1>My Retro Game</h1>
-      <img src="logo.png" alt="My Retro Game Logo">
+      <h1>Karate Clash!</h1>
     </header>
     <nav>
       <ul>
-        <li><a href="#">New Game</a></li>
-        <li><a href="#">Load Game</a></li>
+        <li><a href="./index.html">Battle!</a></li>
         <li><a href="#">Options</a></li>
         <li><a href="#">Exit</a></li>
       </ul>
     </nav>
-    <footer>
-      <p>&copy; 2023 My Retro Game. All rights reserved.</p>
-    </footer>
   </body>
 </html>
