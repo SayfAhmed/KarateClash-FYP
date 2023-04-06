@@ -20,7 +20,7 @@ const background = new Sprite({
 const player = new Fighter({
   position: {
     x: 224,
-    y: 300
+    y: 330
   },
   velocity: {
     x: 0,
@@ -123,7 +123,7 @@ const player = new Fighter({
 const Player2 = new Fighter({
   position: {
     x: 700,
-    y: 300
+    y: 330
   },
   velocity: {
     x: 0,
