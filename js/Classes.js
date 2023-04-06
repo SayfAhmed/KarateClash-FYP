@@ -260,7 +260,7 @@ class Fighter extends Sprite {
       else if(this.image === (this.sprites.attack1.image) && this.framesCurrent < (this.sprites.attack1.framesMax - 1)) 
           return 
 
-    //     //Attack2
+        //Attack2
     // if (this.image === (this.sprites.attack2L.image) && this.framesCurrent < ((this.sprites.attack2L.framesMax -1))) 
     //     return
     //   else if(this.image === (this.sprites.attack2.image) && this.framesCurrent < (this.sprites.attack2.framesMax - 1)) 

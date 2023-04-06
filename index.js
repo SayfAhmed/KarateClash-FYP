@@ -3,11 +3,8 @@ const c = canvas.getContext('2d')
 playMusic()
 canvas.width = 1024
 canvas.height = 576
-
 c.fillRect(0, 0, canvas.width, canvas.height)
-
 const gravity = 0.7
-
 const background = new Sprite({
   position: {
     x: 0,
@@ -116,8 +113,6 @@ const player = new Fighter({
     height: 50
   }
 })
-
-
 
       //Player 2 Sprites
 const Player2 = new Fighter({
@@ -249,7 +244,6 @@ const keys = {
 decreaseTimer()
 
 function animate() {
-  
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
   background.update()
@@ -261,10 +255,6 @@ function animate() {
 
   player.velocity.x = 0
   Player2.velocity.x = 0
-
-
-
-
 
             // player movement
   if ((keys.a.pressed && player.lastKey === 'a') && !(player.position.x <= 3)) {
@@ -311,14 +301,6 @@ function animate() {
       player.switchSprite('fall')
     }
   }
-
-
-
-
-
-
-
-
 
 
             // Player2 movement
@@ -373,8 +355,6 @@ function animate() {
   }
 
 
-
-
   // detect for collision & Player2 gets hit
   if (
     rectangularCollision({
@@ -396,9 +376,6 @@ function animate() {
   if (player.isAttacking && player.framesCurrent === 4) {
     player.isAttacking = false
   }
-
-
-
 
 
   // this is where player1 gets hit
@@ -466,6 +443,7 @@ window.addEventListener('keydown', (event) => {
         break
     }
   }
+
 // Player2 keys
   if (!Player2.dead) {
     switch (event.key) {
