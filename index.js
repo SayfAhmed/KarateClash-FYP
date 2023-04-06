@@ -163,7 +163,7 @@ const Player2 = new Fighter({
       framesMax: 4
     },
     attack2: {
-      imageSrc: './img/Vegeta/FacingRight/Attack1.png',
+      imageSrc: './img/Vegeta/FacingRight/Attack2.png',
       framesMax: 4
     },
     takeHit: {
