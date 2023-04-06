@@ -162,6 +162,10 @@ const Player2 = new Fighter({
       imageSrc: './img/Vegeta/FacingRight/Attack1.png',
       framesMax: 4
     },
+    attack2: {
+      imageSrc: './img/Vegeta/FacingRight/Attack1.png',
+      framesMax: 4
+    },
     takeHit: {
       imageSrc: './img/Vegeta/FacingRight/Take hit.png',
       framesMax: 3
@@ -192,6 +196,10 @@ const Player2 = new Fighter({
     },
     attack1L: {
       imageSrc: './img/Vegeta/FacingLeft/Attack1.png',
+      framesMax: 4
+    },
+    attack2L: {
+      imageSrc: './img/Vegeta/FacingLeft/Attack2.png',
       framesMax: 4
     },
     takeHitL: {
@@ -487,6 +495,9 @@ window.addEventListener('keydown', (event) => {
         break
       case 'm':
         Player2.attack1P2()
+        break
+      case 'n':
+        Player2.attack2P2()
         break
     }
   }

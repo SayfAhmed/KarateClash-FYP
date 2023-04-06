@@ -137,6 +137,8 @@ class Fighter extends Sprite {
     }
   }
 
+  
+// Player 2's attack functions
   attack1P2() {
     if(player.position.x > Player2.position.x){
     this.switchSprite('attack1')
@@ -147,7 +149,20 @@ class Fighter extends Sprite {
       this.isAttacking = true
     }
   }
-//Players Blocking
+
+  attack2P2() {
+    if(player.position.x > Player2.position.x){
+    this.switchSprite('attack2L')
+    this.isAttacking = true
+    }
+    else{
+      this.switchSprite('attack2')
+      this.isAttacking = true
+    }
+  }
+
+
+// Players Blocking
   blockP1() {
     if(player.position.x > Player2.position.x){
       this.switchSprite('blockL')
@@ -159,7 +174,7 @@ class Fighter extends Sprite {
     }
   }
 
-  //Player2's Blocking
+  // Player2's Blocking
   blockP2() {
     if(player.position.x > Player2.position.x){
       this.switchSprite('block')
@@ -237,6 +252,19 @@ class Fighter extends Sprite {
       this.framesCurrent < ((this.sprites.attack1.framesMax - 1))
       ) 
         return
+        
+        //Attack2
+    // if (
+    //   this.image === (this.sprites.attack2L.image) &&
+    //   this.framesCurrent < ((this.sprites.attack2L.framesMax -1))
+    //   ) 
+    //     return
+        
+    // if (
+    //   this.image === (this.sprites.attack2.image) &&
+    //   this.framesCurrent < ((this.sprites.attack2.framesMax - 1))
+    //   ) 
+    //     return
 
     // override when fighter gets hit
     if (
