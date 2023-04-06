@@ -25,3 +25,4 @@ function changeMusic() {
   newAudio.play();
   audio = newAudio; // Update ref to new Audio object
 }
+

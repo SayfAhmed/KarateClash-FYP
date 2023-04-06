@@ -57,8 +57,8 @@ class Fighter extends Sprite {
     c.save()
     super.draw()
     // below
-    c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
-    c.restore()
+    // c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
+    // c.restore()
     //comment this back in when you want to test hitbox locations ^
   }
   constructor({
@@ -186,9 +186,18 @@ class Fighter extends Sprite {
     }
   }
 
+
+
   // PLayer taking the hit
   takeHitP1() {
-    this.health -= 20
+    this.health -= 10  
+    // Sound of getting hit  
+    var P1Hit = new Audio('Sounds/hitImpact.ogg');
+    if (!P1Hit.paused) {
+      P1Hit.pause();
+      P1Hit.currentTime = 0;
+    }
+      P1Hit.play();
 
     if (this.health <= 0) {
       if(Player2.position.x > player.position.x){
@@ -209,7 +218,14 @@ class Fighter extends Sprite {
 
   // PLayer2 taking the hit
   takeHitP2() {
-    this.health -= 20
+    this.health -= 10
+    // Sound of getting hit  
+    var P2Hit = new Audio('Sounds/hitImpact.ogg');
+    if (!P2Hit.paused) {
+      P2Hit.pause();
+      P2Hit.currentTime = 0;
+    }
+      P2Hit.play();
 
     if (this.health <= 0) {
       if(Player2.position.x > player.position.x){

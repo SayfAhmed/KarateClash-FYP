@@ -413,7 +413,6 @@ function animate() {
     {
     player.takeHitP1()
     Player2.isAttacking = false
-
     gsap.to('#playerHealth', {
       width: player.health + '%'
     })
