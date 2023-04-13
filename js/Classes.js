@@ -196,7 +196,7 @@ class Fighter extends Sprite {
     P1Hit.volume = 0.5;
     P1Hit.play();
     // Random Hurt noises
-    var SanjiHurtSounds = ['Sounds/Vegeta/Hurt/Hurt1.ogg', 'Sounds/Vegeta/Hurt/Hurt2.ogg', 'Sounds/Vegeta/Hurt/Hurt3.ogg'];
+    var SanjiHurtSounds = ['Sounds/Sanji/Hurt/Hurt1.ogg', 'Sounds/Sanji/Hurt/Hurt2.ogg', 'Sounds/Sanji/Hurt/Hurt3.ogg'];
     var randomIndex = Math.floor(Math.random() * SanjiHurtSounds.length);
     var randomSoundFile = SanjiHurtSounds[randomIndex];
     var P2Hit = new Audio(randomSoundFile);
@@ -262,10 +262,6 @@ class Fighter extends Sprite {
     }
   }
 
-  
-
-
-
   switchSprite(sprite) {
     if (this.image === this.sprites.deathL.image) {
       if (this.framesCurrent === this.sprites.deathL.framesMax - 1)
@@ -278,14 +274,6 @@ class Fighter extends Sprite {
         return
       else if(this.image === (this.sprites.attack1.image) && this.framesCurrent < (this.sprites.attack1.framesMax - 1)) 
           return 
-
-        //Attack2
-    // if (this.image === (this.sprites.attack2L.image) && this.framesCurrent < ((this.sprites.attack2L.framesMax -1))) 
-    //     return
-    //   else if(this.image === (this.sprites.attack2.image) && this.framesCurrent < (this.sprites.attack2.framesMax - 1)) 
-    //       return 
-
-
 
     // override when fighter gets hit
     if (this.image === this.sprites.takeHit.image && this.framesCurrent < this.sprites.takeHit.framesMax - 1)

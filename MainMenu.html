@@ -56,7 +56,7 @@
     </style>
   </head>
   <script>
-    var audio = new Audio("./Sounds/Menuclick.ogg");
+    var audio = new Audio("./Sounds/Misc/Menuclick.ogg");
     audio.play();
     </script>
   <body>
@@ -68,8 +68,14 @@
       <ul>
         <li><a href="./index.html">Battle!</a></li>
         <li><a href="./Controls.html">Controls</a></li>
-        <li><a href="">Exit</a></li>
+        <li><a href="" id="close">Exit</a></li>
       </ul>
     </nav>
+    <script>
+      document.getElementById("close").addEventListener("click", function(event) {
+        event.preventDefault(); // This stops the link from going to a new page
+        window.location.href = "about:blank"; // redirect to a blank page to end the game 
+      });
+    </script>
   </body>
 </html>
