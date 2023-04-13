@@ -26,8 +26,11 @@ function changeMusic() {
   audio = newAudio; // Update ref to new Audio object
 }
 
-var QuoteSelection = ['','','','',];
-var randomIndex = Math.floor(Math.random() * QuoteSelection.length);
-var random = QuoteSelection[randomIndex];
-var StartQuote = new Audio(random);
-StartQuote.play();
+function GameStartQuote(){
+  var QuoteSelection = ['Sounds/StartBattleQs/SBQ1.ogg','Sounds/StartBattleQs/SBQ2.ogg','Sounds/StartBattleQs/SBQ3.ogg','Sounds/StartBattleQs/SBQ4.ogg','Sounds/StartBattleQs/SBQ5.ogg','Sounds/StartBattleQs/SBQ6.ogg','Sounds/StartBattleQs/SBQ7.ogg','Sounds/StartBattleQs/SBQ8.ogg'];
+  var randomIndex = Math.floor(Math.random() * QuoteSelection.length);
+  var random = QuoteSelection[randomIndex];
+  var StartQuote = new Audio(random);
+  StartQuote.volume = 0.1;
+  StartQuote.play();
+}
