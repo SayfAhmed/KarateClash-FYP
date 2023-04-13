@@ -116,30 +116,29 @@
 
 
 <!-- Player1 UI icon -->
-  <img src="/img/UI/Player1.png" 
-  style="position:absolute; top:17px; right: 1837px; bottom:0px; border:none; width:75px ; height:75;" />
+<img src="/img/UI/Player1.png" 
+  style="position:fixed; top:12px; right:calc(100% - 83px); bottom:0px; border:none; width:75px ; height:75;" />
 
-<!-- Player1 UI icon -->
+<!-- Player2 UI icon -->
 <img src="/img/UI/Player2.png" 
-  style="position:absolute; top:9px; right: 872px; bottom:0px; border:none; width:85px ; height:85;" />
+  style="position:fixed; top:9px; right:calc(100% - 1050px); bottom:0px; border:none; width:85px ; height:85;" />
 
 
-<!-- button to restart the game -->
-  <div style="display:flex;
-  align-items:center;
-  padding-top:5px;">
-  <input type="button" onclick="restart()" value="Restart" style="width: 15vw; height:10vh; font-size:large;
-      border:10px solid black; background-color: #ffc62a;">
+<!-- button container -->
+<div style="position: fixed; top: 635px; left: 395px; transform: translate(-50%, -50%); display: flex; flex-direction: row; z-index: 1;">
 
-<!-- button to change music -->
-  <div>
-    <input type="button" onclick="changeMusic()" value="Change song" style="width: 15vw; height:10vh; font-size:large;
-        border:10px solid black; background-color: #ffc62a;">
-  </div>
-<!-- button to go back to menu -->
-  <div>
-    <button onclick= "location.href='MainMenu.html'" style="width: 15vw; height:10vh; font-size:large; border:10px solid black; background-color: #ffc62a;">Main Menu</button>
-  </div>
+  <!-- button to restart the game -->
+  <input type="button" onclick="restart()" value="Restart" style="width: 250px; height: 100px; font-size:large;
+      border:8px solid black; background-color: #ffc62a; margin-right: 10px;">
+
+  <!-- button to change music -->
+  <input type="button" onclick="changeMusic()" value="Change song" style="width: 250px; height: 100px; font-size:large;
+      border:8px solid black; background-color: #ffc62a; margin-right: 10px;">
+
+  <!-- button to go back to menu -->
+  <button onclick="location.href='MainMenu.html'" style="width: 250px; height: 100px; font-size:large; border:8px solid black; background-color: #ffc62a;">Main Menu</button>
+
+</div>
 
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
