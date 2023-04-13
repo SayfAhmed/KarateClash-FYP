@@ -192,7 +192,7 @@ class Fighter extends Sprite {
   takeHitP1() {
     this.health -= 10  
     // Sound of getting hit  
-    var P1Hit = new Audio('Sounds/hitImpact.ogg');
+    var P1Hit = new Audio('Sounds/Misc/hitImpact.ogg');
     if (!P1Hit.paused) {
       P1Hit.pause();
       P1Hit.currentTime = 0;
@@ -220,7 +220,7 @@ class Fighter extends Sprite {
   takeHitP2() {
     this.health -= 10
     // Sound of getting hit  
-    var P2Hit = new Audio('Sounds/hitImpact.ogg');
+    var P2Hit = new Audio('Sounds/Misc/hitImpact.ogg');
     if (!P2Hit.paused) {
       P2Hit.pause();
       P2Hit.currentTime = 0;
@@ -265,6 +265,8 @@ class Fighter extends Sprite {
     //     return
     //   else if(this.image === (this.sprites.attack2.image) && this.framesCurrent < (this.sprites.attack2.framesMax - 1)) 
     //       return 
+
+
 
     // override when fighter gets hit
     if (this.image === this.sprites.takeHit.image && this.framesCurrent < this.sprites.takeHit.framesMax - 1)
