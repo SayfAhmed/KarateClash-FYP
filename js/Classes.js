@@ -187,27 +187,26 @@ class Fighter extends Sprite {
   }
 
 
-
   // PLayer taking the hit
   takeHitP1() {
     this.health -= 10  
     // Impact of the hit noise
-    var P1Hit = new Audio('Sounds/Misc/hitImpact.ogg');
-    P1Hit.volume = 0.5;
-    P1Hit.play();
-    // Random Hurt noises
-    var SanjiHurtSounds = ['Sounds/Sanji/Hurt/Hurt1.ogg', 'Sounds/Sanji/Hurt/Hurt2.ogg', 'Sounds/Sanji/Hurt/Hurt3.ogg'];
+    var HitSound = new Audio('Sounds/Misc/hitImpact.ogg');
+    HitSound.volume = 0.5;
+    HitSound.play();
+    // Random Sanji Hurt Noises
+    var SanjiHurtSounds = ['Sounds/Sanji/Hurt/Hurt1.ogg', 'Sounds/Sanji/Hurt/Hurt2.ogg', 'Sounds/Sanji/Hurt/Hurt3.ogg', 'Sounds/Vegeta/Hit/Hit1.ogg', 'Sounds/Vegeta/Hit/Hit2.ogg', 'Sounds/Vegeta/Hit/Hit3.ogg'];
     var randomIndex = Math.floor(Math.random() * SanjiHurtSounds.length);
     var randomSoundFile = SanjiHurtSounds[randomIndex];
-    var P2Hit = new Audio(randomSoundFile);
-    P2Hit.volume = 0.5;
+    var Hurt = new Audio(randomSoundFile);
+    Hurt.volume = 0.5;
   
     // Currently playing sound + play the random sound
-    if (!P2Hit.paused) {
-      P2Hit.pause();
-      P2Hit.currentTime = 0;
+    if (!Hurt.paused) {
+      Hurt.pause();
+      Hurt.currentTime = 0;
     }
-    P2Hit.play();
+    Hurt.play();
 
     if (this.health <= 0) {
       if(Player2.position.x > player.position.x){
@@ -230,22 +229,22 @@ class Fighter extends Sprite {
   takeHitP2() {
     this.health -= 10;
     // Impact of the hit noise
-    var P1Hit = new Audio('Sounds/Misc/hitImpact.ogg');
-    P1Hit.volume = 0.5;
-    P1Hit.play();
+    var HitSound = new Audio('Sounds/Misc/hitImpact.ogg');
+    HitSound.volume = 0.5;
+    HitSound.play();
     // Random Hurt noises
-    var VegetaHurtSounds = ['Sounds/Vegeta/Hurt/Hurt1.ogg', 'Sounds/Vegeta/Hurt/Hurt2.ogg', 'Sounds/Vegeta/Hurt/Hurt3.ogg'];
+    var VegetaHurtSounds = ['Sounds/Vegeta/Hurt/Hurt1.ogg', 'Sounds/Vegeta/Hurt/Hurt2.ogg', 'Sounds/Vegeta/Hurt/Hurt3.ogg','Sounds/Sanji/Hit/Hit1.ogg', 'Sounds/Sanji/Hit/Hit2.ogg', 'Sounds/Sanji/Hit/Hit3.ogg'];
     var randomIndex = Math.floor(Math.random() * VegetaHurtSounds.length);
     var randomSoundFile = VegetaHurtSounds[randomIndex];
-    var P2Hit = new Audio(randomSoundFile);
-    P2Hit.volume = 0.5;
+    var Hurt = new Audio(randomSoundFile);
+    Hurt.volume = 0.5;
   
     // Currently playing sound + play the random sound
-    if (!P2Hit.paused) {
-      P2Hit.pause();
-      P2Hit.currentTime = 0;
+    if (!Hurt.paused) {
+      Hurt.pause();
+      Hurt.currentTime = 0;
     }
-    P2Hit.play();
+    Hurt.play();
   
     if (this.health <= 0) {
       if (Player2.position.x > player.position.x) {
