@@ -52,24 +52,23 @@
           "
         ></div>
       </div>
-
       <!-- timer -->
-      <div
-        id="timer"
-        style="
-          background-color: black;
-          width: 100px;
-          height: 50px;
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          border: 4px solid white;
-        "
-      >
-        10
-      </div>
+        <div
+          id="timer"
+          style="
+            background-color: rgb(112, 112, 112);
+            width: 100px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+            border: 4px solid rgb(0, 0, 0);
+            font-size: 25px;
+          "
+        >
+        </div>
 
       <!-- Player2 health -->
       <div
@@ -125,15 +124,15 @@
 
 
 <!-- button container -->
-<div style="position: fixed; top: 635px; left: 395px; transform: translate(-50%, -50%); display: flex; flex-direction: row; z-index: 1;">
+<div style="position: fixed; top: 635px; left: 388px; transform: translate(-50%, -50%); display: flex; flex-direction: row; z-index: 1;">
 
   <!-- button to restart the game -->
   <input type="button" onclick="restart()" value="Restart" style="width: 250px; height: 100px; font-size:large;
-      border:8px solid black; background-color: #ffc62a; margin-right: 10px;">
+      border:8px solid black; background-color: #ffc62a; margin-right: 5px;">
 
   <!-- button to change music -->
   <input type="button" onclick="changeMusic()" value="Change song" style="width: 250px; height: 100px; font-size:large;
-      border:8px solid black; background-color: #ffc62a; margin-right: 10px;">
+      border:8px solid black; background-color: #ffc62a; margin-right: 5px;">
 
   <!-- button to go back to menu -->
   <button onclick="location.href='MainMenu.html'" style="width: 250px; height: 100px; font-size:large; border:8px solid black; background-color: #ffc62a;">Main Menu</button>

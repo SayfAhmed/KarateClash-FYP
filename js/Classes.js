@@ -191,13 +191,23 @@ class Fighter extends Sprite {
   // PLayer taking the hit
   takeHitP1() {
     this.health -= 10  
-    // Sound of getting hit  
+    // Impact of the hit noise
     var P1Hit = new Audio('Sounds/Misc/hitImpact.ogg');
-    if (!P1Hit.paused) {
-      P1Hit.pause();
-      P1Hit.currentTime = 0;
+    P1Hit.volume = 0.5;
+    P1Hit.play();
+    // Random Hurt noises
+    var SanjiHurtSounds = ['Sounds/Vegeta/Hurt/Hurt1.ogg', 'Sounds/Vegeta/Hurt/Hurt2.ogg', 'Sounds/Vegeta/Hurt/Hurt3.ogg'];
+    var randomIndex = Math.floor(Math.random() * SanjiHurtSounds.length);
+    var randomSoundFile = SanjiHurtSounds[randomIndex];
+    var P2Hit = new Audio(randomSoundFile);
+    P2Hit.volume = 0.5;
+  
+    // Currently playing sound + play the random sound
+    if (!P2Hit.paused) {
+      P2Hit.pause();
+      P2Hit.currentTime = 0;
     }
-      P1Hit.play();
+    P2Hit.play();
 
     if (this.health <= 0) {
       if(Player2.position.x > player.position.x){
@@ -219,13 +229,16 @@ class Fighter extends Sprite {
   // PLayer2 taking the hit
   takeHitP2() {
     this.health -= 10;
-      var P1Hit = new Audio('Sounds/Misc/hitImpact.ogg');
-      P1Hit.play();
+    // Impact of the hit noise
+    var P1Hit = new Audio('Sounds/Misc/hitImpact.ogg');
+    P1Hit.volume = 0.5;
+    P1Hit.play();
     // Random Hurt noises
     var VegetaHurtSounds = ['Sounds/Vegeta/Hurt/Hurt1.ogg', 'Sounds/Vegeta/Hurt/Hurt2.ogg', 'Sounds/Vegeta/Hurt/Hurt3.ogg'];
     var randomIndex = Math.floor(Math.random() * VegetaHurtSounds.length);
     var randomSoundFile = VegetaHurtSounds[randomIndex];
     var P2Hit = new Audio(randomSoundFile);
+    P2Hit.volume = 0.5;
   
     // Currently playing sound + play the random sound
     if (!P2Hit.paused) {
@@ -248,6 +261,7 @@ class Fighter extends Sprite {
       }
     }
   }
+
   
 
 
