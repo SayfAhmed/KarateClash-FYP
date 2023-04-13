@@ -26,3 +26,8 @@ function changeMusic() {
   audio = newAudio; // Update ref to new Audio object
 }
 
+var QuoteSelection = ['','','','',];
+var randomIndex = Math.floor(Math.random() * QuoteSelection.length);
+var random = QuoteSelection[randomIndex];
+var StartQuote = new Audio(random);
+StartQuote.play();
