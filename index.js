@@ -17,7 +17,7 @@ const background = new Sprite({
       //Player Sprites
 const player = new Fighter({
   position: {
-    x: 224,
+    x: 225,
     y: 330
   },
   velocity: {
@@ -258,9 +258,14 @@ function animate() {
   Player2.velocity.x = 0
 
             // player movement
-  if ((keys.a.pressed && player.lastKey === 'a') && !(player.position.x <= 3)) {
+  if (
+  (keys.a.pressed && player.lastKey === 'a') && !
+  (player.position.x <= 3)
+  ) 
+  {
     player.velocity.x = -5
     player.switchSprite('runL')
+
   } else if ((keys.d.pressed && player.lastKey === 'd') && !(player.position.x >= 960)){
     player.velocity.x = 5
     player.switchSprite('run')
@@ -268,21 +273,25 @@ function animate() {
   else if(keys.s.pressed && player.lastKey === 's') {
     if(player.position.x > Player2.position.x){
     player.switchSprite('blockL')
+    player.isBlocking = true
     }
     else{
       player.switchSprite('block')
+      player.isBlocking = true
     }
   }
   else {
     if (player.position.x > Player2.position.x){
     player.attackBox.width = -120
     player.attackBox.offset.x = 55
-    player.switchSprite('idleL')
+    player.switchSprite('idleL') 
+    player.isBlocking = false
     }
     else {
     player.attackBox.width = 120
     player.attackBox.offset.x = 15
     player.switchSprite('idle')
+    player.isBlocking = false
     }
   }
 
@@ -318,9 +327,11 @@ function animate() {
   else if(keys.ArrowDown.pressed && Player2.lastKey === 'ArrowDown') {
     if(Player2.position.x > player.position.x){
       Player2.switchSprite('blockL')
+      Player2.isBlocking = true
       }
       else{
         Player2.switchSprite('block')
+        Player2.isBlocking = true
       }
   }
 
@@ -330,11 +341,13 @@ function animate() {
       Player2.attackBox.width = 120
       Player2.attackBox.offset.x = 25
       Player2.switchSprite('idle')
+      Player2.isBlocking = false
     }
     else{
       Player2.attackBox.width = -130
       Player2.attackBox.offset.x = 50
       Player2.switchSprite('idleL')
+      Player2.isBlocking = false
     }
   }
 
@@ -363,7 +376,8 @@ function animate() {
       rectangle2: Player2
     }) &&
     player.isAttacking &&
-    player.framesCurrent === 4
+    player.framesCurrent === 2 &&
+    Player2.isBlocking == false
   ) {
     Player2.takeHitP2()
     player.isAttacking = false
@@ -373,6 +387,7 @@ function animate() {
     })
   }
 
+
   // if player misses
   if (player.isAttacking && player.framesCurrent === 4) {
     player.isAttacking = false
@@ -381,12 +396,10 @@ function animate() {
 
   // this is where player1 gets hit
   if ((
-    rectangularCollision({rectangle1: Player2, rectangle2: player}) 
-    &&
-    Player2.isAttacking 
-    &&
-    Player2.framesCurrent === 2
-    //&& (player.isblocking = false)
+    rectangularCollision({rectangle1: Player2, rectangle2: player}) &&
+    Player2.isAttacking  &&
+    Player2.framesCurrent === 2 &&
+    player.isBlocking == false
   ))
     {
     player.takeHitP1()
@@ -396,7 +409,7 @@ function animate() {
     })
   }
 
-  // if player misses
+  // if player2 misses
   if (Player2.isAttacking && Player2.framesCurrent === 2) {
     Player2.isAttacking = false
   }

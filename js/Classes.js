@@ -95,7 +95,7 @@ class Fighter extends Sprite {
     }
     this.color = color
     this.isAttacking
-    this.isBlocking
+    this.isBlocking = false
     this.health = 100
     this.framesCurrent = 0
     this.framesElapsed = 0
@@ -167,6 +167,7 @@ class Fighter extends Sprite {
     if(player.position.x > Player2.position.x){
       this.switchSprite('blockL')
       this.isBlocking = true
+      
     }
     else {
       this.switchSprite('block')
