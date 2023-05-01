@@ -167,7 +167,6 @@ class Fighter extends Sprite {
     if(player.position.x > Player2.position.x){
       this.switchSprite('blockL')
       this.isBlocking = true
-      
     }
     else {
       this.switchSprite('block')
