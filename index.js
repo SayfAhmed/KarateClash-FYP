@@ -213,7 +213,7 @@ const Player2 = new Fighter({
   },
   attackBox: {
     offset: {
-      x: 50,
+      x: -130,
       y: 50
     }, //The size of the attack boxes
     width: 110,
@@ -282,14 +282,14 @@ function animate() {
   }
   else {
     if (player.position.x > Player2.position.x){
-    player.attackBox.width = -120
-    player.attackBox.offset.x = 55
+    // player.attackBox.width = -120
+    // player.attackBox.offset.x = 55
     player.switchSprite('idleL') 
     player.isBlocking = false
     }
     else {
-    player.attackBox.width = 120
-    player.attackBox.offset.x = 15
+    // player.attackBox.width = 120
+    // player.attackBox.offset.x = 15
     player.switchSprite('idle')
     player.isBlocking = false
     }
@@ -338,14 +338,14 @@ function animate() {
   //Idle
    else {
     if (player.position.x > Player2.position.x){
-      Player2.attackBox.width = 120
-      Player2.attackBox.offset.x = 25
+      // Player2.attackBox.width = 120
+      // Player2.attackBox.offset.x = 25
       Player2.switchSprite('idle')
       Player2.isBlocking = false
     }
     else{
-      Player2.attackBox.width = -130
-      Player2.attackBox.offset.x = 50
+      // Player2.attackBox.width = -130
+      // Player2.attackBox.offset.x = 50
       Player2.switchSprite('idleL')
       Player2.isBlocking = false
     }
