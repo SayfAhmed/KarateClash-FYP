@@ -107,10 +107,10 @@ const player = new Fighter({
   attackBox: {
    //this is how far from the origin of the player which the the attackbox's origin is
     offset: {
-      x: 15,
+      x: -50,
       y: 50
     },
-    width: 120,
+    width: 180,
     height: 50
   }
 })
@@ -216,7 +216,7 @@ const Player2 = new Fighter({
       x: -70,
       y: 50
     }, //The size of the attack boxes
-    width: 110,
+    width: 190,
     height: 50
   }
 })
