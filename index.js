@@ -213,10 +213,10 @@ const Player2 = new Fighter({
   },
   attackBox: {
     offset: {
-      x: -70,
+      x: -80,
       y: 50
     }, //The size of the attack boxes
-    width: 190,
+    width: 200,
     height: 50
   }
 })

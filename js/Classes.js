@@ -53,14 +53,15 @@ class Sprite {
 }
 
 class Fighter extends Sprite {
-  draw() {
-    c.save()
-    super.draw()
-    // below
-    // c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
-    // c.restore()
-    //comment this back in when you want to test hitbox locations ^
-  }
+  // below  
+  // draw() {
+  //   c.save()
+  //   super.draw()    
+  //   c.fillRect(this.attackBox.position.x, this.attackBox.position.y, this.attackBox.width, this.attackBox.height) 
+  //   c.restore()
+  // }
+  //comment this back in when you want to test hitbox locations ^
+ 
   constructor({
     position,
     velocity,
