@@ -499,7 +499,6 @@ window.addEventListener('keydown', (event) => {
         Player2.attack1P2()
         break
       case 'n':
-        Player2.attack2P2()
         break
     }
   }
