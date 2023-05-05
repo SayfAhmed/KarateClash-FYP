@@ -271,6 +271,11 @@ function animate() {
     player.switchSprite('run')
   } 
   else if(keys.s.pressed && player.lastKey === 's') {
+    player.health -= 0.1 //penalty added for blocking too much
+        console.log(player.health)
+        gsap.to('#playerHealth', {
+          width: player.health + '%'
+        })
     if(player.position.x > Player2.position.x){
     player.switchSprite('blockL')
     player.isBlocking = true
@@ -325,6 +330,10 @@ function animate() {
 
   //Blocking
   else if(keys.ArrowDown.pressed && Player2.lastKey === 'ArrowDown') {
+    Player2.health -= 0.1 //added penalty for blocking too much
+        gsap.to('#Player2Health', {
+          width: Player2.health + '%'
+        })
     if(Player2.position.x > player.position.x){
       Player2.switchSprite('blockL')
       Player2.isBlocking = true
@@ -447,11 +456,6 @@ window.addEventListener('keydown', (event) => {
         //this if statement is to stop the player from using block in 'unskillful' ways. This makes it so that you must be stationary for block to occur.
         if ((player.position.y == 330) && (player.velocity.x == 0)) 
         {
-          player.health -= 0.25 //penalty added for blocking too much
-        console.log(player.health)
-        gsap.to('#playerHealth', {
-          width: player.health + '%'
-        })
         player.blockP1()
         
         }
@@ -485,10 +489,6 @@ window.addEventListener('keydown', (event) => {
         //this if statement is to stop the player from using block in 'unskillful' ways. This makes it so that you must be stationary for block to occur.
         if ((Player2.position.y == 330) && (Player2.velocity.x == 0)) 
         {
-          Player2.health -= 0.25 //added penalty for blocking too much
-        gsap.to('#Player2Health', {
-          width: Player2.health + '%'
-        })
         Player2.blockP2()
         
         }
